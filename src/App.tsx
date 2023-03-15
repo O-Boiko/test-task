@@ -31,7 +31,7 @@ function App() {
   const [minPrice, setMinPrice] = useState<number | null>(null);
   const [maxPrice, setMaxPrice] = useState<number | null>(null);
   const [colors, setColors] = useState<Color[]>([]);
-  const [page, setPage] = useState<number>(0);
+  // const [page, setPage] = useState<number>(0);
   const [sortBy, setSortBy] = useState<SortBy | null>(null);
 
   useEffect(() => {
@@ -39,20 +39,20 @@ function App() {
   }, [dispatch]);
 
   useEffect(() => {
-    makeDispatch();
-  }, [colors, minPrice, maxPrice, sortBy, page]);
+    makeDispatch(null);
+  }, [colors, minPrice, maxPrice, sortBy]);
 
   const keyPress = (e: any) => {
     if (e.keyCode === 13) {
-      makeDispatch();
+      makeDispatch(null);
     }
   };
 
-  const makeDispatch = () => {
+  const makeDispatch = (page: number | null) => {
     dispatch(
       fetchProductsRequest({
         searchString: searchString,
-        page: page,
+        page: page ?? 0,
         ...{ ...(colors.length ? { color: colors } : {}) },
         ...{ ...(minPrice ? { minPrice } : {}) },
         ...{ ...(maxPrice ? { maxPrice } : {}) },
@@ -138,7 +138,7 @@ function App() {
               count={Math.ceil(productsData.totalProducts / PRODUCTS_PER_PAGE)}
               page={productsData.page + 1}
               onChange={(e: React.ChangeEvent<unknown>, page: number) =>
-                setPage(page - 1)
+                makeDispatch(page - 1)
               }
               size="small"
               className={s.pagination}
