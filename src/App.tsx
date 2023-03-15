@@ -31,7 +31,6 @@ function App() {
   const [minPrice, setMinPrice] = useState<number | null>(null);
   const [maxPrice, setMaxPrice] = useState<number | null>(null);
   const [colors, setColors] = useState<Color[]>([]);
-  // const [page, setPage] = useState<number>(0);
   const [sortBy, setSortBy] = useState<SortBy | null>(null);
 
   useEffect(() => {
