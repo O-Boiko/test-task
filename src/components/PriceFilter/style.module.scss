@@ -1,0 +1,10 @@
+﻿.price {
+  width: 6rem;
+  &:first-child {
+    margin-right: 1rem;
+  }
+  @media only screen and (max-width: 600px) {
+    width: calc(50% - 0.5rem);
+    min-width: 5rem;
+  }
+}

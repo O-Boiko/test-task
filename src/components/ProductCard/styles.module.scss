@@ -1,0 +1,37 @@
+﻿.card {
+  display: block;
+  width: 12.5rem;
+  text-decoration: none;
+  .icon {
+    height: 7.5rem;
+  }
+  .content {
+    padding: 0.5rem;
+    .title {
+      font-size: 1rem;
+      font-weight: 700;
+      margin: 0;
+    }
+    .description {
+      font-size: 0.75rem;
+      color: #787878b8;
+      line-height: normal;
+      margin-bottom: 0.5rem;
+    }
+    .parameter {
+      .title {
+        font-weight: 700;
+        margin-right: 0.5rem;
+        font-size: 0.75rem;
+      }
+      .value {
+        font-size: 0.75rem;
+        color: #787878b8;
+        display: inline-block;
+        &::first-letter {
+          text-transform: uppercase;
+        }
+      }
+    }
+  }
+}
