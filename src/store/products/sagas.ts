@@ -32,7 +32,10 @@ export function* callSubmit(action: FetchProductsRequest): any {
     yield put({ type: FETCH_PRODUCT_SUCCESS, payload: result?.data });
   } catch (e) {
     const error = e as Error | AxiosError;
-    yield put({ type: FETCH_PRODUCT_FAILURE, payload: error.message ?? error });
+    yield put({
+      type: FETCH_PRODUCT_FAILURE,
+      payload: { error: error.message ?? error }
+    });
   }
 }
 export function* submitSaga(): Generator<Effect> {

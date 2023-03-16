@@ -7,7 +7,11 @@ import store from './store';
 import reportWebVitals from './reportWebVitals';
 
 const { worker } = require('./mocks/browser');
-worker.start();
+worker.start({
+  serviceWorker: {
+    url: '/test-task/mockServiceWorker.js'
+  }
+});
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
