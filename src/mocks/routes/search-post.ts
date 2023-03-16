@@ -20,7 +20,7 @@ const sort = (search_products: Product[], sort_by: SortBy) => {
   }
 };
 
-const handler = rest.post('/api/search', async (req, res, ctx) => {
+const handler = rest.post('*/api/search', async (req, res, ctx) => {
   const { search_string, color, min_price, max_price, sort_by, page } =
     await req.json();
 
